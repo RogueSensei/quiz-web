@@ -26,6 +26,10 @@ angular.module('app').controller('HostQuizController', ['$scope', '$routeParams'
     }
 
     $scope.next = async function() {
+        if ($scope.state.count < 2) {
+            alert('Cannot continue the quiz, at least 2 players are required');
+            return;
+        }
         try {
             $scope.state = await HostService.nextStep(roomCode);
             if ($scope.state == undefined) {
