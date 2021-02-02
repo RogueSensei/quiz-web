@@ -9,8 +9,8 @@ frontend:
     build:
       commands:
         - npm run build
-    postBuild:
-        - npm run test
+  postBuild:
+      - npm run test-ci
   artifacts:
     baseDirectory: '/dist/'
     files:
